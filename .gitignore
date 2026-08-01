@@ -1,0 +1,17 @@
+node_modules
+dist
+.DS_Store
+.env
+.env.local
+*.log
+.turbo
+.astro
+.react-router
+.generated
+apps/app/data/*.db
+apps/app/data/*.db-*
+!**/.gitkeep
+.vscode
+.idea
+coverage
+tmp

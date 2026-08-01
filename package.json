@@ -1,0 +1,17 @@
+{
+  "name": "agentnative",
+  "private": true,
+  "packageManager": "pnpm@10.14.0",
+  "scripts": {
+    "dev": "pnpm --filter agenthq dev",
+    "dev:app": "pnpm --filter agenthq dev",
+    "dev:web": "pnpm --filter agenthq-web dev",
+    "build": "pnpm -r build",
+    "build:app": "pnpm --filter agenthq build",
+    "build:web": "pnpm --filter agenthq-web build",
+    "start:app": "pnpm --filter agenthq start"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

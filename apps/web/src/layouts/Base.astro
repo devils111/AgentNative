@@ -1,0 +1,52 @@
+---
+import "../styles/global.css";
+import { languages, t, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+}
+
+const { lang, title, description } = Astro.props;
+const copy = t(lang);
+const other = lang === "en" ? "zh" : "en";
+const pathAfterLocale = Astro.url.pathname.replace(/^\/(en|zh)/, "") || "/";
+const switchHref = `/${other}${pathAfterLocale.endsWith("/") ? pathAfterLocale : `${pathAfterLocale}/`}`;
+---
+
+<!doctype html>
+<html lang={lang === "zh" ? "zh-CN" : "en"}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="alternate" hreflang="en" href={`/en${pathAfterLocale}`} />
+    <link rel="alternate" hreflang="zh" href={`/zh${pathAfterLocale}`} />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href={`/${lang}/`}>{copy.brand}</a>
+        <nav class="nav" aria-label="Primary">
+          <a href={`/${lang}/product/`}>{copy.navProduct}</a>
+          <a href={`/${lang}/self-host/`}>{copy.navSelfHost}</a>
+          <a class="lang-switch" href={switchHref} aria-label={`Switch to ${languages[other]}`}>
+            {copy.langSwitch}
+          </a>
+        </nav>
+      </header>
+      <slot />
+      <footer class="site-footer">
+        <p>{copy.footerNote}</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+import Base from "../../layouts/Base.astro";
+import { t } from "../../i18n/ui";
+
+const lang = "zh";
+const copy = t(lang);
+---
+
+<Base lang={lang} title={`${copy.brand} — ${copy.homeHeadline}`} description={copy.homeSupport}>
+  <main>
+    <section class="hero">
+      <p class="hero-caption">{copy.heroCaption}</p>
+      <h1>{copy.brand}</h1>
+      <p class="hero-support">{copy.homeHeadline}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={`/${lang}/self-host/`}>{copy.ctaPrimary}</a>
+        <a class="btn btn-ghost" href={`/${lang}/product/`}>{copy.ctaSecondary}</a>
+      </div>
+    </section>
+  </main>
+</Base>

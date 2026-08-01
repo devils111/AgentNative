@@ -1,0 +1,21 @@
+services:
+  agenthq:
+    build:
+      context: .
+      dockerfile: apps/app/Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - path: apps/app/.env
+        required: false
+    environment:
+      DATABASE_URL: file:/data/app.db
+      HOST: 0.0.0.0
+      PORT: "8080"
+      APP_ORIGIN: http://localhost:8080
+    volumes:
+      - agenthq-data:/data
+    restart: unless-stopped
+
+volumes:
+  agenthq-data:

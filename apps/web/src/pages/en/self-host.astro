@@ -1,0 +1,37 @@
+---
+import Base from "../../layouts/Base.astro";
+import { t } from "../../i18n/ui";
+
+const lang = "en";
+const copy = t(lang);
+---
+
+<Base lang={lang} title={`${copy.brand} — Self-host`} description={copy.selfHostBody}>
+  <main class="section">
+    <h2>{copy.selfHostTitle}</h2>
+    <p class="section-lead">{copy.selfHostBody}</p>
+    <div class="steps">
+      <article>
+        <h3>{copy.selfHostStep1}</h3>
+        <div class="code-block">git clone &lt;your-fork&gt; AgentNative
+cd AgentNative
+pnpm install</div>
+      </article>
+      <article>
+        <h3>{copy.selfHostStep2}</h3>
+        <div class="code-block">cp apps/app/.env.example apps/app/.env
+# set ANTHROPIC_API_KEY or OPENAI_API_KEY</div>
+      </article>
+      <article>
+        <h3>{copy.selfHostStep3}</h3>
+        <div class="code-block"># Docker
+docker compose up --build
+
+# or local
+pnpm --filter agenthq dev
+# App → http://localhost:8080
+# Site → pnpm --filter agenthq-web dev</div>
+      </article>
+    </div>
+  </main>
+</Base>
