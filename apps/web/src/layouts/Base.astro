@@ -28,8 +28,9 @@ const switchHref = `/${other}${pathAfterLocale.endsWith("/") ? pathAfterLocale :
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="alternate" hreflang="en" href={`/en${pathAfterLocale}`} />
     <link rel="alternate" hreflang="zh" href={`/zh${pathAfterLocale}`} />
+    <link rel="alternate" hreflang="en" href={`/en${pathAfterLocale}`} />
+    <link rel="alternate" hreflang="x-default" href={`/zh${pathAfterLocale}`} />
   </head>
   <body>
     <div class="site-shell">

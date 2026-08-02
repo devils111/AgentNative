@@ -58,8 +58,8 @@ SQLite data persists in the `agenthq-data` volume.
 
 Marketing site routes:
 
+- 中文（默认）: `/zh/`
 - English: `/en/`
-- 中文: `/zh/`
 
 ## License
 

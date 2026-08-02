@@ -4,8 +4,8 @@ export default defineConfig({
   site: "https://agenthq.local",
   trailingSlash: "always",
   i18n: {
-    defaultLocale: "en",
-    locales: ["en", "zh"],
+    defaultLocale: "zh",
+    locales: ["zh", "en"],
     routing: {
       prefixDefaultLocale: true,
     },
